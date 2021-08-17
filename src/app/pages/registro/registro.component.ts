@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { UsuarioModel } from '../../models/usuario.model';
 
 @Component({
@@ -15,13 +16,17 @@ export class RegistroComponent implements OnInit {
   ngOnInit() {
 
       this.usuario = new UsuarioModel();
-      this.usuario.email = 'hrsd83@gmail.com';
   }
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
+    // se crea una condicional para que valide
+    if ( form.invalid ) {return; }
 
     console.log('Formulario enviado');
     console.log(this.usuario);
+    console.log(form);
+
+
   }
 
 
